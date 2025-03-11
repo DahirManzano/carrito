@@ -6,6 +6,8 @@ package mx.itson.carrito.iu;
 
 import java.util.Scanner;
 import mx.itson.carrito.entidades.Carro;
+import mx.itson.carrito.entidades.Propietario;
+import mx.itson.carrito.entidades.Taller;
 import mx.itson.carrito.enums.TipoMotor;
 import mx.itson.carrito.enums.TipoTransmision;
 
@@ -35,12 +37,29 @@ public class Main {
         bmw.setTipoMotor(TipoMotor.HIBRIDO);
         bmw.setTipoTransmision(TipoTransmision.AUTOMATICO);
         
+        Propietario prop = new Propietario();
+        prop.setNombre("Juan");
+        prop.setDireccion("Calle hormigon #32");
+        prop.setTelefono("911");
+        prop.setEmail("juanitoloco@gmail.com");
+        
+        Taller taller = new Taller();
+        taller.setDireccionTaller("Enrique Segoviano");
+        taller.setNombreTaller("Manolo");
+        taller.setTelefono("6221425266");
+        
+        bmw.setTaller(taller);
+        bmw.setPropietario(prop);
+        
         //Invocamos al método contenido en la clase Carro.
          double tiempo = bmw.calcularTiempo(distancia, velocidad);
         System.out.println("El tiempo que le tomara al carro " + bmw.getMarca() + 
                 " de color " + bmw.getColor() + " y del año " + bmw.getAnio() + 
                 " sera " + tiempo + " horas " +
-                "y ahora su kilometraje es de " + bmw.getKilometraje());
+                "y"
+                        + " ahora su kilometraje es de " + bmw.getKilometraje() +
+                "El propietario de este carro es " + bmw.getPropietario().getNombre() +
+                " El taller donde se realizo el trabajo se llama " + bmw.getTaller().getNombreTaller());
         
     }
 }
